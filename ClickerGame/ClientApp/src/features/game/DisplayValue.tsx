@@ -1,19 +1,22 @@
-﻿import React, { useEffect } from "react";
-import { useRecoilValue } from "recoil";
+﻿import React from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import Add1BySecondAtom from "../../atoms/Add1BySecondAtom";
 import ClickerAtom from "../../atoms/ClickerAtom";
+import useInterval from "../../hooks/useInterval";
 
 const DisplayValue = () =>
 {
-    const value = useRecoilValue(ClickerAtom);
- 
-    useEffect(()=>{
-        
-    })
-    
+    const [clickerValue, clickerValueSetter] = useRecoilState(ClickerAtom);
+    const add1BySecondValue = useRecoilValue(Add1BySecondAtom);
+
+    useInterval(() =>
+    {
+        clickerValueSetter(clickerValue + add1BySecondValue);
+    }, 1000);
+
     return (<>
-        <p>{value}</p>
-        </>
-    );
+        <p>{clickerValue}</p>
+    </>);
 };
 
 export default DisplayValue;
