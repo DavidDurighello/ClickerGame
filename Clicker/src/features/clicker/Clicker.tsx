@@ -8,7 +8,7 @@ type ClickerProps = {
     className?: string;
 };
 
-const Clicker = ({ className }: ClickerProps): React.ReactElement => {
+const Clicker = ({ className }: ClickerProps) => {
     const incrementer = useSetRecoilState(ClickerAtom);
     const incrementorClickValue = useRecoilValue(IncrementorClickAtom);
 

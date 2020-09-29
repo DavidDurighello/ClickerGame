@@ -1,12 +1,16 @@
 import React from 'react';
 import Incrementor from './components/Incrementor';
+import StyledMultiplicator from './components/Multiplicator';
 import Upgrades from './components/Upgrades';
 
-const Market = (): React.ReactElement => {
+const Market = () => {
     return (
         <>
-            <Upgrades />
-            <Incrementor />
+            <div className="grid grid-cols-1 gap-4">
+                <StyledMultiplicator />
+                <Upgrades />
+                <Incrementor />
+            </div>
         </>
     );
 };
